@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vojta's cove</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer components {
+            .skill {
+                @apply border border-emerald-900/60 text-emerald-300 px-3 py-1 hover:bg-emerald-900/30 transition-colors cursor-pointer inline-flex items-center gap-2 no-underline;
+            }
+            .skill.inactive {
+                @apply text-gray-400;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black min-h-screen flex items-center justify-center p-4 font-mono text-gray-400 relative">
+    
+    <canvas id="visualizer" class="fixed inset-0 w-full h-full z-0 opacity-25 pointer-events-none"></canvas>
+
+    <div class="w-full max-w-3xl max-h-[90vh] bg-black relative z-10 flex flex-col border border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+        <nav class="flex px-6 py-4 items-center justify-between border-b border-emerald-900/50">
+            <div class="flex items-center gap-4">
+                <img src="https://avatars.githubusercontent.com/u/177017719" width="48" class="rounded border border-emerald-900">
+                <div>
+                    <h1 class="text-emerald-500 font-bold text-lg">vojta</h1>
+                    <p class="text-xs text-gray-500">wannabe developer</p>
+                </div>
+            </div>
+            <div class="flex space-x-4 text-sm font-bold tracking-widest">
+                <a href="https://discord.com/users/873108166840299581" class="hover:text-emerald-400 transition-colors">[dsc]</a>
+                <a href="https://github.com/votisek" class="hover:text-emerald-400 transition-colors">[gh]</a>
+            </div>
+        </nav>
+        
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-10 text-sm md:text-base leading-relaxed">
+            
+            <section>
+                <h2 class="text-emerald-500 font-bold mb-3 tracking-widest">>about me:</h2>
+                <p>
+                    hey, i'm vojta. i like coding, music and hating on javascript
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-emerald-500 font-bold mb-3 tracking-widest">>music:</h3>
+                <p>
+                    i mainly listen to pop, poprock and some electronic
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-emerald-500 font-bold mb-3 tracking-widest">>games:</h2>
+                <p>
+                        > <3 minecraft <br>
+                        > i also like the portal games cause those are cool <br>
+                        > peak is a good game also
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-emerald-500 font-bold mb-3 tracking-widest">>skillset:</h2>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <a href="http://python.org" class="skill"><i class="fa-brands fa-python text-sm"></i> python</a>
+                    <a href="http://go.dev" class="skill"><i class="fa-brands fa-golang text-sm"></i> golang</a>
+                    <a href="http://gnu.org/software/bash" class="skill"><i class="fa-solid fa-terminal text-sm"></i> bash</a>
+                    <a href="http://archlinux.org" class="skill"><i class="fa-brands fa-solid fa-linux"></i> linux</a>
+                    <a href="http://nixos.org" class="skill"><svg class="w-[1.25em] h-[1.25em] fill-current translate-y-[1px]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.352 1.592l-1.364.002L5.32 2.75l1.557 2.713-3.137-.008-1.32 2.34H14.11l-1.353-2.332-3.192-.006-2.214-3.865zm6.175 0l-2.687.025 5.846 10.127 1.341-2.34-1.59-2.765 2.24-3.85-.683-1.182h-1.336l-1.57 2.705-1.56-2.72zm6.887 4.195l-5.846 10.125 2.696-.008 1.601-2.76 4.453.016.682-1.183-.666-1.157-3.13-.008L21.778 8.1l-1.365-2.313zM9.432 8.086l-2.696.008-1.601 2.76-4.453-.016L0 12.02l.666 1.157 3.13.008-1.575 2.71 1.365 2.315L9.432 8.086zM7.33 12.25l-.006.01-.002-.004-1.342 2.34 1.59 2.765-2.24 3.85.684 1.182H7.35l.004-.006h.001l1.567-2.698 1.558 2.72 2.688-.026-.004-.006h.01L7.33 12.25zm2.55 3.93l1.354 2.332 3.192.006 2.215 3.865 1.363-.002.668-1.156-1.557-2.713 3.137.008 1.32-2.34H9.881Z"/></svg> nix</a>
+                    <a href="http://git-scm.com" class="skill"><i class="fa-brands fa-git-alt text-sm"></i> git</a>
+                    <a href="http://docker.com" class="skill"><i class="fa-brands fa-docker text-sm"></i> docker</a>
+                    <a href="http://cloudflare.com" class="skill"><i class="fa-brands fa-cloudflare text-sm"></i> cloudflare</a>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-emerald-500 font-bold mb-3 tracking-widest">>projects:</h2>
+                <ul class="space-y-4 max-w-xl">
+                    <li>
+                        <a href="https://github.com/votisek/website" class="text-gray-300 hover:text-emerald-400 transition-colors block">
+                            <span class="font-bold">> my website</span>
+                        </a>
+                        <p class="text-gray-500 text-sm mt-1">you are on it right now</p>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-300 hover:text-emerald-400 transition-colors block">
+                            <span class="font-bold">> mcsarch</span>
+                        </a>
+                        <p class="text-gray-500 text-sm mt-1">a custom made archiso specifically for minecraft speedrunning on linux for the ease of starting out</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        
+        <footer class="text-xs p-2 border-t border-emerald-900/50 bg-emerald-950/10 text-emerald-600/60 flex justify-between">
+           <span>&copy; 2026 vojta</span>
+        </footer>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById('visualizer');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const barWidth = 16;
+        const barGap = 4;
+        const blockHeight = 8;
+        const blockGap = 2;
+        let numBars = Math.floor(width / (barWidth + barGap));
+        
+        let bars = Array.from({length: numBars}, () => ({
+            value: 0,
+            target: Math.random() * height * 0.4
+        }));
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#10b981';
+
+            for(let i = 0; i < numBars; i++) {
+                let bar = bars[i];
+                if (Math.random() < 0.1) {
+                    bar.target = Math.random() * Math.random() * height * 0.6;
+                }
+                if (bar.value < bar.target) {
+                    bar.value += (bar.target - bar.value) * 0.3;
+                } else {
+                    bar.value -= (bar.value - bar.target) * 0.1;
+                }
+                let blocksInBar = Math.floor(bar.value / (blockHeight + blockGap));
+                let x = i * (barWidth + barGap);
+                let offsetX = (width - (numBars * (barWidth + barGap))) / 2;
+
+                for(let b = 0; b < blocksInBar; b++) {
+                    let y = height - (b * (blockHeight + blockGap)) - blockHeight;
+                    ctx.fillRect(offsetX + x, y, barWidth, blockHeight);
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        
+        draw();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            numBars = Math.floor(width / (barWidth + barGap));
+            bars = Array.from({length: numBars}, () => ({
+                value: 0,
+                target: Math.random() * height * 0.4
+            }));
+        });
+    </script>
+</body>
+</html>

@@ -2,20 +2,21 @@
 
 javaver () {
     local prism_dir="$HOME/.local/share/PrismLauncher"
-    local max_playtime=-1
+
+    local min_playtime=9999999
     target=""
     source=""
 
     if [[ -n "$prism_dir" ]]; then
         for inst in "$prism_dir/instances"/*; do
             [[ -d "$inst" ]] || continue
-            if find "$inst/minecraft/mods" -iname "*speedrunapi*" -print -quit 2>/dev/null | grep -q .; then
+            if find "$inst/minecraft/mods" -iname "*stronghold*" -print -quit 2>/dev/null | grep -q .; then
                 if [[ -f "$inst/instance.cfg" ]]; then
                     local playtime=$(grep -e '^totalPlayTime=' "$inst/instance.cfg" | cut -d'=' -f2 | tr -d '\r')
                     local javapath=$(grep -e '^JavaPath=' "$inst/instance.cfg" | cut -d'=' -f2 | tr -d '\r')
                     playtime=${playtime:-0}
-                    if (( playtime > max_playtime )); then
-                        max_playtime=$playtime
+                    if (( playtime < min_playtime )); then
+                        min_playtime=$playtime
                         target=$javapath
                         source=" in instance settings"
                     fi
@@ -23,7 +24,7 @@ javaver () {
             fi
         done
  
-        if [[ -z "$target" ]]; then s
+        if [[ -z "$target" ]]; then 
             if [[ -f "$prism_dir/prismlauncher.cfg" ]]; then
                 target=$(grep '^JavaPath=' "$prism_dir/prismlauncher.cfg" | cut -d'=' -f2 | tr -d '\r')
                 source=" in global prism settings"
@@ -31,7 +32,7 @@ javaver () {
         fi
     fi
 
-    if [[ -z "$target" ]]; then
+    if [[ -z "$target" ]]; then 
         target=$(which java 2>/dev/null)
         source=" in global java"
     fi

